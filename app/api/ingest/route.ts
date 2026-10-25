@@ -45,7 +45,7 @@ const bodySchema = z.object({
 
 const idempotency = globalThis as unknown as { __dwIdempotency?: Map<string, number> };
 
-export function sanitizeSummary(value: string): string {
+function sanitizeSummary(value: string): string {
   return value
     .replace(/<[^>]*>/g, "")
     .replace(/[\u0000-\u001f\u007f]/g, " ")
